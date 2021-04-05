@@ -112,6 +112,9 @@ public class ClientMain {
                         File scriptName = MyReader.getFileName(scanner, commands);
                         DataToOutput<File> executeScript = new DataToOutput<>("execute_script", scriptName);
                         message = send(executeScript);
+                        if (message.getMessage().contains("Data is saved")){
+                            commands[0] = "exit";
+                        }
                         break;
                     case "remove_first":
                         DataToOutput<String> removeFirst = new DataToOutput<>("remove_first", "nothing");
